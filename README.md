@@ -22,17 +22,17 @@ Disable Secure Boot in your BIOS settings. This step is necessary to load the `v
 
 Load the `v4l2loopback` module into the kernel with specific parameters. The `exclusive_caps=1` parameter is required for the camera to be recognized in Google Chrome. The `card_label` parameter provides a name for the virtual device.
 
-bashCopy code
-
-`sudo modprobe v4l2loopback exclusive_caps=1 card_label="Camera Loopback"` 
+```bash
+sudo modprobe v4l2loopback exclusive_caps=1 card_label="Camera Loopback"
+```
 
 ### 4. Start gphoto2
 
 In my case, I set the resolution to HD and the fps to 30. The device I use is `/dev/video2`. Use `v4l2-ctl --list-devices` to find your device.
 
-bashCopy code
-
-`gphoto2 --stdout --set-config liveviewsize=0 --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 -s:v 1366x768 -r 30 /dev/video2` 
+```bash
+gphoto2 --stdout --set-config liveviewsize=0 --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 -s:v 1366x768 -r 30 /dev/video2
+```
 
 ### Final Step: Script and Desktop Shortcut
 
