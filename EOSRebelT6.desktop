@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=EOS Rebel T6
+Comment=Iniciar streaming da câmera EOS Rebel T6
+Exec=/home/jean/dslr-as-webcam/EOSRebelT6.sh
+Icon=/home/jean/dslr-as-webcam/icon.png
+Terminal=true
+Type=Application
+Categories=Utility;
